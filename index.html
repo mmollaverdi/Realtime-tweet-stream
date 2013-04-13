@@ -6,7 +6,7 @@
     <script src="/socket.io/socket.io.js"></script>
 	<script>
 	  var socket = io.connect('http://localhost');
-	  socket.on('content', function (data) {
+	  socket.on('initialContent', function (data) {
 		alert(data);
 		document.getElementById('content').innerHTML = data;
 	    //socket.emit('my other event', { my: 'data' });

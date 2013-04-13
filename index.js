@@ -1,3 +1,5 @@
 var httpServer = require('./httpServer').start();
 
-require('./webSocketServer').start(httpServer);
+var twitterFeed = require('./twitterFeed');
+
+require('./webSocketServer').start(httpServer, twitterFeed.currentTweets, twitterFeed.newTweets);
