@@ -15,4 +15,5 @@ function handler (request, response) {
 
 exports.start = function() {
   httpServer.listen(80);
+  return httpServer;
 };

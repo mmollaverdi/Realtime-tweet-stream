@@ -1,2 +1,3 @@
-var httpServer = require('./httpServer');
-httpServer.start();
+var httpServer = require('./httpServer').start();
+
+require('./webSocketServer').start(httpServer);
