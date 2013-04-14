@@ -20,8 +20,7 @@ exports.newTweets = function(emit) {
     function(stream) {
 
       stream.on('data', function(tweet) {
-        console.log('New tweet: ' + tweet.text);
-        console.log('New tweet: ' + tweet.user.screen_name);
+        console.log('New tweet, text: ' + tweet.text + ', author: ' + tweet.user.screen_name);
         emit({text: tweet.text, author: tweet.user.screen_name});
       });
       
