@@ -8,26 +8,22 @@ String.prototype.endsWith = function(suffix) {
 
 function handler (request, response) {
   var pathname = url.parse(request.url).pathname;
-  console.log('pathname: ' + pathname);
-  if (pathname.endsWith('.js')) {
+  //console.log('pathname: ' + pathname);
+  if ('/' === pathname) {
+    pathname = '/index.html';
+  }
+  if (pathname.endsWith('.html') || pathname.endsWith('.js') || pathname.endsWith('.css')) {
     fs.readFile(__dirname + pathname, function (error, data) {
       if (error) {
-        response.writeHead(500);
-        return response.end('Internal Server Error');
+        response.writeHead(404);
+        return response.end('Resource not found');
       }
       response.writeHead(200);
       response.end(data);
     });
   } else {
-    fs.readFile(__dirname + '/index.html', function (error, data) {
-      if (error) {
-        response.writeHead(500);
-        return response.end('Internal Server Error');
-      }
-      response.writeHead(200);
-      response.end(data);
-    
-    });
+    response.writeHead(404);
+    response.end('Resource not found');
   }
 };
 
