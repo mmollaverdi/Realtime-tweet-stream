@@ -7,17 +7,19 @@
 	<script>
 	  var socket = io.connect('http://localhost');
 	  socket.on('initialContent', function (data) {
-		//alert(data);
-		document.getElementById('content').innerHTML = data;
+		//document.getElementById('content_list').innerHTML = '<li>' + data + '</li>';
 	    //socket.emit('my other event', { my: 'data' });
 	  });
 
 	  socket.on('newContent', function (data) {
-	    document.getElementById('content').innerHTML = data;
+	    document.getElementById('content_list').innerHTML += '<li>' + data.author + ': ' + data.text + '</li>';
 	  });
 	</script>
 </head>
 <body>
-	<div id="content"></div>
+	<div>
+		<ul id="content_list">
+		</ul>
+	</div>
 </body>
 </html>
