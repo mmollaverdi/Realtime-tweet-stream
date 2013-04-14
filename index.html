@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Tweet Stream</title>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="fixed-array.min.js"></script>
 	<script>
 	  var socket = io.connect('http://localhost');
 	  socket.on('initialContent', function (data) {
