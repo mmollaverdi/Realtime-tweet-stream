@@ -12,7 +12,8 @@
 	  });
 
 	  socket.on('newContent', function (data) {
-	    document.getElementById('content_list').innerHTML += '<li>' + data.author + ': ' + data.text + '</li>';
+	    document.getElementById('content_list').innerHTML = '<li>' + data.author + ': ' + data.text + '</li>' +
+	    	document.getElementById('content_list').innerHTML;
 	  });
 	</script>
 </head>
