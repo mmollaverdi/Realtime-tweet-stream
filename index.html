@@ -7,13 +7,17 @@
 	<script>
 	  var socket = io.connect('http://localhost');
 	  socket.on('initialContent', function (data) {
-		alert(data);
+		//alert(data);
 		document.getElementById('content').innerHTML = data;
 	    //socket.emit('my other event', { my: 'data' });
+	  });
+
+	  socket.on('newContent', function (data) {
+	    document.getElementById('content').innerHTML = data;
 	  });
 	</script>
 </head>
 <body>
-	<div id="content">Empty Content</div>
+	<div id="content"></div>
 </body>
 </html>
