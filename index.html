@@ -7,14 +7,22 @@
     <script src="fixed-array.min.js"></script>
 	<script>
 	  var socket = io.connect('http://localhost');
+
+	  var tweets = newFixedValueHistory(5);
+
 	  socket.on('initialContent', function (data) {
 		//document.getElementById('content_list').innerHTML = '<li>' + data + '</li>';
 	    //socket.emit('my other event', { my: 'data' });
 	  });
 
 	  socket.on('newContent', function (data) {
-	    document.getElementById('content_list').innerHTML = '<li>' + data.author + ': ' + data.text + '</li>' +
-	    	document.getElementById('content_list').innerHTML;
+	  	tweets.push(data);
+
+		document.getElementById('content_list').innerHTML = '';
+	  	for (var i = (tweets.length() - 1); i >= 0 ; i--) {
+	  		var tweet = tweets.values()[i];
+	  		document.getElementById('content_list').innerHTML += '<li>' + tweet.author + ': ' + tweet.text + '</li>';
+	  	}
 	  });
 	</script>
 </head>
