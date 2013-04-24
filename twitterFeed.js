@@ -9,7 +9,20 @@ twitter.verifyCredentials(function (error, data) {
 });
 
 exports.currentTweets = function(emit) {
-  emit('Test Content');
+  twitter.search(
+    'javascript', {rpp: 5},
+	function(error, searchResult) {
+	  if (error) {
+	    console.log("REST API error: " + error);
+	  }
+	  var tweets = [];
+	  for (var i = 0; i < searchResult.results.length; i++) {
+	    var tweet = searchResult.results[i];
+	    tweets[i] = {text: tweet.text, author: tweet.from_user};
+	  }
+	  emit(tweets);
+	}
+  );
 };
 
 exports.onNewTweet = function(emit) {

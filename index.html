@@ -9,20 +9,26 @@
 	  var socket = io.connect('http://localhost');
 
 	  var tweets = newFixedValueHistory(5);
+	  
+	  function displayTweets() {
+	    document.getElementById('content_list').innerHTML = '';
+	  	for (var i = (tweets.length() - 1); i >= 0 ; i--) {
+	  	  var tweet = tweets.values()[i];
+	  	  document.getElementById('content_list').innerHTML += '<li>' + tweet.author + ': ' + tweet.text + '</li>';
+	  	}
+	  };
 
 	  socket.on('initialContent', function (data) {
-		//document.getElementById('content_list').innerHTML = '<li>' + data + '</li>';
-	    //socket.emit('my other event', { my: 'data' });
+	    for (var i = 0; i < data.length; i++) {
+		  tweets.push(data[i]);  
+		}
+		//alert(JSON.stringify(data[0]));
+		displayTweets();
 	  });
 
 	  socket.on('newContent', function (data) {
 	  	tweets.push(data);
-
-		document.getElementById('content_list').innerHTML = '';
-	  	for (var i = (tweets.length() - 1); i >= 0 ; i--) {
-	  		var tweet = tweets.values()[i];
-	  		document.getElementById('content_list').innerHTML += '<li>' + tweet.author + ': ' + tweet.text + '</li>';
-	  	}
+        displayTweets();
 	  });
 	</script>
 </head>
