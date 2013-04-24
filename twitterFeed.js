@@ -12,7 +12,7 @@ exports.currentTweets = function(emit) {
   emit('Test Content');
 };
 
-exports.newTweets = function(emit) {
+exports.onNewTweet = function(emit) {
 
   twitter.stream(
     'statuses/filter',

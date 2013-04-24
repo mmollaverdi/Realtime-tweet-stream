@@ -1,9 +1,9 @@
 {
-  "name": "twitter-stream-over-websocket",
+  "name": "realtime-tweet-stream",
   "version": "0.0.1",
-  "description": "Twitter Stream over Websocket",
-  "keywords":["twitter","websocket", "socket.io"],
-  "repository":"git://github.com/mmollaverdi/twitter-stream-over-websocket.git",
+  "description": "Realtime tweet stream using socket.io",
+  "keywords":["twitter", "websocket", "socket.io", "realtime"],
+  "repository":"git://github.com/mmollaverdi/Realtime-tweet-stream.git",
   "author": {
     "name": "Mehdi Mollaverdi",
     "email": "m.mollaverdi@gmail.com"
