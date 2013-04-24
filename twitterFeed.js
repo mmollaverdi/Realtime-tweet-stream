@@ -10,7 +10,7 @@ twitter.verifyCredentials(function (error, data) {
 
 exports.currentTweets = function(emit) {
   twitter.search(
-    'javascript', {rpp: 5},
+    'nodejs OR javascript OR AngularJS OR EmberJS OR WebSocket', {rpp: 5},
 	function(error, searchResult) {
 	  if (error) {
 	    console.log("REST API error: " + error);
