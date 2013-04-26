@@ -32,7 +32,7 @@ module.exports = credentials;
 
 Twitter keys can be acquired from [dev.twitter.com/apps](https://dev.twitter.com/apps).
 
-Then, run "node index.js". This has to be done as root since the http server runs on port 80.
+Then, run "npm install" to install all the application dependencies and at the end, run "node index.js". This has to be done as root since the http server runs on port 80.
 
 Hitting "http://yourHostName" in the browser will display 5 recent tweets with one of "nodejs, javascript, AngularJS, EmberJS, WebSocket" keywords on the page; and after that any new tweet with those keywords will appear at the top.
 
