@@ -42,4 +42,3 @@ Hitting "http://yourHostName" in the browser will display 5 recent tweets with o
 - Use environment variables for twitter keys
 - Handle corner cases such as 'disconnect' events
 - Build a nicer UI
-- Get rid f hardcoded 'localhost' in the HTML page

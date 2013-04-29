@@ -6,10 +6,10 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="fixed-array.min.js"></script>
 	<script>
-	  var socket = io.connect('http://localhost');
+	  var socket = io.connect('ws://' + document.location.host);
 
 	  var tweets = newFixedValueHistory(5);
-	  
+
 	  function displayTweets() {
 	    document.getElementById('content_list').innerHTML = '';
 	  	for (var i = (tweets.length() - 1); i >= 0 ; i--) {
@@ -20,9 +20,8 @@
 
 	  socket.on('initialContent', function (data) {
 	    for (var i = 0; i < data.length; i++) {
-		  tweets.push(data[i]);  
+		  tweets.push(data[i]);
 		}
-		//alert(JSON.stringify(data[0]));
 		displayTweets();
 	  });
 
