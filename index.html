@@ -6,7 +6,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="fixed-array.min.js"></script>
 	<script>
-	  var socket = io.connect('ws://' + document.location.host);
+	  var socket = io.connect('http://' + document.location.host);
 
 	  var tweets = newFixedValueHistory(5);
 
